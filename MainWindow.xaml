@@ -1,0 +1,54 @@
+﻿<Window x:Class="pz_10._2._3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pz_10._2._3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="413*"/>
+            <ColumnDefinition Width="379*"/>
+        </Grid.ColumnDefinitions>
+        <ToolBar HorizontalAlignment="Left" Height="27" Margin="10,10,0,0" VerticalAlignment="Top" Width="602" Grid.ColumnSpan="2">
+            <ToggleButton Command="ApplicationCommands.Open" Content="Открыть" ToolTip="Открыть файл" Height="21" VerticalAlignment="Top" Width="75" Click="Open_Executed"/>
+            <ToggleButton Command="ApplicationCommands.Save" Content="Сохранить" ToolTip="Сохранит файл" Height="22" VerticalAlignment="Top" Width="75" Click="Save_Executed"/>
+            <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold" ToolTip="Схавать жирнича" Content="Жирнич" Height="22" VerticalAlignment="Top" Width="75"/>
+            <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic" ToolTip="Схавать курсивыча" Content="Курсивыч" Height="21" VerticalAlignment="Top" Width="75"/>
+            <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline" ToolTip="Схавать черкаша" Content="Подчеркач" Height="25" VerticalAlignment="Top" Width="75"/>
+            <ComboBox Height="22" Name="cmbFontFamily" Margin="0" VerticalAlignment="Top" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged"/>
+            <ComboBox Height="22" Name="cmbFontSize" Margin="0" VerticalAlignment="Top" Width="50" SelectionChanged="cmbFontSize_SelectionChanged"/>
+        </ToolBar>
+        <RichTextBox x:Name="rtbEditor" HorizontalAlignment="Left" Height="367" Margin="5,49,0,0" VerticalAlignment="Top" Width="772" SelectionChanged="rtbEditor_SelectionChanged" Grid.ColumnSpan="2">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button x:Name="btn_Black"  Background="Black" Grid.Column="1" ToolTip="АААА негры" HorizontalAlignment="Left" Margin="203,17,0,0" VerticalAlignment="Top" Width="17" Height="17" Click="Button_Click_1"/>
+        <Button x:Name="btn_Red"  Background="Red" Grid.Column="1" ToolTip="АААА индейцы" HorizontalAlignment="Left" Margin="269,17,0,0" VerticalAlignment="Top" Width="17" Height="17" Click="Button_Click_4"/>
+        <Button x:Name="btn_Yellow"  Background="Yellow" Grid.Column="1" ToolTip="АААА китаезы" HorizontalAlignment="Left" Margin="247,17,0,0" VerticalAlignment="Top" Width="17" Height="17" Click="Button_Click_3"/>
+        <Button x:Name="btn_Green"  Background="Green" Grid.Column="1" ToolTip="АААА ТРАВА????" HorizontalAlignment="Left" Margin="225,17,0,0" VerticalAlignment="Top" Width="17" Height="17" Click="Button_Click_2"/>
+        <Button Grid.Column="1" HorizontalAlignment="Left" Margin="297,14,0,0" VerticalAlignment="Top" Width="20" ToolTip="Межстрочный интервал (1.0)" Click="SetLineSpacing1">
+            <WrapPanel>
+                <TextBlock Text="1.0" VerticalAlignment="Center"/>
+            </WrapPanel>
+        </Button>
+        <Button Grid.Column="1"  HorizontalAlignment="Left" Margin="322,14,0,0" VerticalAlignment="Top" Width="20" ToolTip="Межстрочный интервал (1.5)" Click="SetLineSpacing15">
+            <WrapPanel>
+                <TextBlock Text="1.5" VerticalAlignment="Center"/>
+            </WrapPanel>
+        </Button >
+        <Button Grid.Column="1" HorizontalAlignment="Left" Margin="347,14,0,0" VerticalAlignment="Top" Width="20" Click="SetLineSpacing2" ToolTip="Межстрочный интервал (2.0)">
+            <WrapPanel>
+                <TextBlock Text="2.0" VerticalAlignment="Center"/>
+            </WrapPanel>
+        </Button>
+    </Grid>
+</Window>
